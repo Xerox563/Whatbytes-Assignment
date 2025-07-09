@@ -4,7 +4,6 @@ import { useStore } from "../store/useStore";
 import { useRef } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import logo from "../../public/logo.png";
 
 export default function Header() {
   const cart = useStore((s) => s.cart);
@@ -24,7 +23,7 @@ export default function Header() {
   return (
     <header className="bg-blue-700 text-white flex items-center justify-between px-8 py-4">
       <div className="font-bold text-2xl">
-        <Image src={logo} width={40} height={25} alt="logo" />
+        <Image src="/logo.png" width={40} height={25} alt="logo" />
       </div>
       <div className="flex-1 flex justify-center">
         <input
