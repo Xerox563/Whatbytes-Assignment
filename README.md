@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# E-Commerce Frontend Assignment
+
+Created a modern, responsive e-commerce web app built with Next.js, Tailwind CSS, Zustand, and lucide-react.
+
+## Features
+
+- **Home Page**: Product grid with filters (category, price, color), search with debouncing, and beautiful UI.
+- **Product Detail Page**: Carousel, quantity selector, add-to-cart, and reviews section.
+- **Cart Page**: Update quantity, remove items, price summary, and persistent cart state (localStorage).
+- **Dynamic Routing**: Product detail pages use dynamic routes.
+- **State Management**: Cart and filters managed with Zustand, with localStorage persistence.
+- **URL Sync**: Filters and search sync with URL query params.
+- **Styling**: Tailwind CSS for rapid, consistent design. Custom color themes (purple for filters, green for product grid/Running Shoes).
+- **Icons**: lucide-react for modern, lightweight icons.
+- **Image Handling**: Uses Next.js `<Image />` with images referenced by path from `/public`.
+- **Production Ready**: Deployed on Vercel with optimized build settings.
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/) (App Router)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Zustand](https://zustand-demo.pmnd.rs/)
+- [lucide-react](https://lucide.dev/)
+- [Vercel](https://vercel.com/) (deployment)
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Xerox563/Whatbytes-Assignment.git
+cd frontend-whatbytes
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Build for production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+This project is ready for deployment on [Vercel](https://vercel.com/):
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push your code to GitHub.
+2. Import the repo in Vercel and follow the prompts.
+3. If you encounter image or `sharp` errors, ensure all images in `/public` are referenced by path, not imported.
+4. For persistent build errors, add the following to `next.config.js`:
+   ```js
+   eslint: { ignoreDuringBuilds: true },
+   typescript: { ignoreBuildErrors: true },
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Customization
 
-## Deploy on Vercel
+- **Colors**: Edit `tailwind.config.js` or use Tailwind classes in components.
+- **Products**: Update mock product data in `/src/data/products.ts` (or similar).
+- **Images**: Place images in `/public` and reference them by path (e.g., `/logo.png`).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Troubleshooting
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Image Import Errors**: Never import images from `/public`—use string paths in `<Image src="/your-image.png" />`.
+- **OneDrive Issues**: Avoid running the project from a OneDrive folder to prevent file lock errors.
+- **Build Fails on Vercel**: See the Deployment section above.
+
+## License
+
+This project is for educational/demo purposes. Contact the author for other uses.
