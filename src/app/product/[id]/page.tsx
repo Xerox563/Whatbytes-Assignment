@@ -5,8 +5,13 @@ import { notFound } from "next/navigation";
 import { Star } from "lucide-react";
 import { useStore } from "../../../store/useStore";
 import { useState } from "react";
+import Image from "next/image";
 
-export default function ProductDetail({ params }: { params: { id: string } }) {
+type Props = {
+  params: { id: string };
+};
+
+export default function ProductDetail({ params }: Props) {
   const product = products.find((p) => p.id === Number(params.id));
   const addToCart = useStore((s) => s.addToCart);
   const [qty, setQty] = useState(1);
@@ -19,7 +24,7 @@ export default function ProductDetail({ params }: { params: { id: string } }) {
       {/* Image Carousel */}
       <div className="flex-1 flex flex-col items-center justify-center">
         <div className="relative w-80 h-80 mb-4">
-          <img src={product.images[imgIdx]} alt={product.title} className="w-full h-full object-contain rounded-xl bg-white shadow" />
+          <Image src={product.images[imgIdx]} alt={product.title} width={320} height={320} className="w-full h-full object-contain rounded-xl bg-white shadow" />
           {product.images.length > 1 && (
             <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
               {product.images.map((_, i) => (

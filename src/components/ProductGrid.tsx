@@ -4,6 +4,7 @@ import { products } from "../data/products";
 import { Star } from "lucide-react";
 import { useStore } from "../store/useStore";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ProductGrid() {
   const search = useStore((s) => s.search).toLowerCase();
@@ -36,7 +37,7 @@ export default function ProductGrid() {
         return (
           <div
             key={product.id}
-            className={`bg-slate-500 rounded-xl shadow p-4 flex flex-col items-center ${
+            className={`bg-white rounded-xl shadow p-4 flex flex-col items-center ${
               isRunningShoes ? "border-2 border-green-600" : ""
             }`}
           >
@@ -45,13 +46,15 @@ export default function ProductGrid() {
               className="w-full flex flex-col items-center group"
               tabIndex={-1}
             >
-              <img
+              <Image
                 src={product.image}
                 alt={product.title}
+                width={128}
+                height={128}
                 className="w-32 h-32 object-contain mb-4 group-hover:scale-105 transition"
               />
               <div
-                className={`font-semibold text-orange-700  text-lg mb-1 group-hover:text-blue-700 transition ${
+                className={`font-semibold text-lg mb-1 group-hover:text-blue-700 transition ${
                   isRunningShoes ? "text-green-600" : ""
                 }`}
               >
