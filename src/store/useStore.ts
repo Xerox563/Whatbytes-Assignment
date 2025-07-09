@@ -67,4 +67,4 @@ if (typeof window !== "undefined") {
   useStore.subscribe((state) => {
     localStorage.setItem("cart", JSON.stringify(state.cart));
   });
-} 
+}
