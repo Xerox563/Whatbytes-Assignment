@@ -54,9 +54,7 @@ export const products: Product[] = [
     category: "Home",
     description: "Durable backpack for travel and daily use.",
     rating: 4.3,
-    reviews: [
-      { name: "Sam", rating: 4, comment: "Very spacious." },
-    ],
+    reviews: [{ name: "Sam", rating: 4, comment: "Very spacious." }],
   },
   {
     id: 4,
@@ -67,9 +65,7 @@ export const products: Product[] = [
     category: "Electronics",
     description: "Feature-rich smartwatch with health tracking.",
     rating: 4.6,
-    reviews: [
-      { name: "Lily", rating: 5, comment: "Tracks everything!" },
-    ],
+    reviews: [{ name: "Lily", rating: 5, comment: "Tracks everything!" }],
   },
   {
     id: 5,
@@ -80,9 +76,7 @@ export const products: Product[] = [
     category: "Clothing",
     description: "Stylish sunglasses with UV protection.",
     rating: 4.2,
-    reviews: [
-      { name: "Chris", rating: 4, comment: "Looks great!" },
-    ],
+    reviews: [{ name: "Chris", rating: 4, comment: "Looks great!" }],
   },
   {
     id: 6,
@@ -106,9 +100,7 @@ export const products: Product[] = [
     category: "Clothing",
     description: "Soft and comfortable cotton t-shirt.",
     rating: 4.1,
-    reviews: [
-      { name: "Mia", rating: 4, comment: "Nice fit." },
-    ],
+    reviews: [{ name: "Mia", rating: 4, comment: "Nice fit." }],
   },
   {
     id: 8,
@@ -119,8 +111,6 @@ export const products: Product[] = [
     category: "Electronics",
     description: "Latest smartphone with advanced features.",
     rating: 4.9,
-    reviews: [
-      { name: "Eve", rating: 5, comment: "Best phone I've used." },
-    ],
+    reviews: [{ name: "Eve", rating: 5, comment: "Best phone I've used." }],
   },
-]; 
+];
