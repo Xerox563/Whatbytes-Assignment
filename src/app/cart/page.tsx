@@ -1,6 +1,7 @@
 "use client";
 
 import { useStore } from "../../store/useStore";
+import Image from "next/image";
 
 export default function CartPage() {
   const cart = useStore((s) => s.cart);
@@ -18,7 +19,7 @@ export default function CartPage() {
         <div className="flex flex-col gap-6">
           {cart.map((item) => (
             <div key={item.product.id} className="flex items-center gap-6 bg-white rounded-xl shadow p-4">
-              <img src={item.product.image} alt={item.product.title} className="w-20 h-20 object-contain rounded" />
+              <Image src={item.product.image} alt={item.product.title} width={80} height={80} className="w-20 h-20 object-contain rounded" />
               <div className="flex-1">
                 <div className="font-semibold text-lg">{item.product.title}</div>
                 <div className="text-gray-600">${item.product.price} x </div>
