@@ -12,7 +12,8 @@ export default function ProductGrid() {
   const addToCart = useStore((s) => s.addToCart);
 
   const filtered = products.filter((p) => {
-    const matchesCategory = category === "all" || p.category.toLowerCase() === category;
+    const matchesCategory =
+      category === "all" || p.category.toLowerCase() === category;
     const matchesPrice = p.price <= price;
     const matchesSearch =
       p.title.toLowerCase().includes(search) ||
@@ -21,7 +22,11 @@ export default function ProductGrid() {
   });
 
   if (filtered.length === 0) {
-    return <div className="text-center text-gray-500 py-16 w-full">No products found.</div>;
+    return (
+      <div className="text-center text-gray-500 py-16 w-full">
+        No products found.
+      </div>
+    );
   }
 
   return (
@@ -31,17 +36,41 @@ export default function ProductGrid() {
         return (
           <div
             key={product.id}
-            className={`bg-slate-500 rounded-xl shadow p-4 flex flex-col items-center ${isRunningShoes ? "border-2 border-green-600" : ""}`}
+            className={`bg-slate-500 rounded-xl shadow p-4 flex flex-col items-center ${
+              isRunningShoes ? "border-2 border-green-600" : ""
+            }`}
           >
-            <Link href={`/product/${product.id}`} className="w-full flex flex-col items-center group" tabIndex={-1}>
-              <img src={product.image} alt={product.title} className="w-32 h-32 object-contain mb-4 group-hover:scale-105 transition" />
-              <div className={`font-semibold text-orange-700  text-lg mb-1 group-hover:text-blue-700 transition ${isRunningShoes ? "text-green-600" : ""}`}>
+            <Link
+              href={`/product/${product.id}`}
+              className="w-full flex flex-col items-center group"
+              tabIndex={-1}
+            >
+              <img
+                src={product.image}
+                alt={product.title}
+                className="w-32 h-32 object-contain mb-4 group-hover:scale-105 transition"
+              />
+              <div
+                className={`font-semibold text-orange-700  text-lg mb-1 group-hover:text-blue-700 transition ${
+                  isRunningShoes ? "text-green-600" : ""
+                }`}
+              >
                 {product.title}
               </div>
-              <div className="text-blue-700 font-bold mb-1">${product.price}</div>
+              <div className="text-blue-700 font-bold mb-1">
+                ${product.price}
+              </div>
               <div className="flex items-center mb-2">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={16} className={i < Math.round(product.rating) ? "fill-yellow-400 stroke-yellow-400" : "stroke-gray-300"} />
+                  <Star
+                    key={i}
+                    size={16}
+                    className={
+                      i < Math.round(product.rating)
+                        ? "fill-yellow-400 stroke-yellow-400"
+                        : "stroke-gray-300"
+                    }
+                  />
                 ))}
               </div>
             </Link>
@@ -56,4 +85,4 @@ export default function ProductGrid() {
       })}
     </div>
   );
-} 
+}
